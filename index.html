@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikon ZR Storage Calculator</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Nikon ZR Storage Calculator</h1>
+            <p class="subtitle">Calculate recording times for different codecs, resolutions, and frame rates</p>
+        </header>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="storage">Storage Card Size</label>
+                <select id="storage">
+                    <option value="64">64 GB</option>
+                    <option value="128">128 GB</option>
+                    <option value="256">256 GB</option>
+                    <option value="325">325 GB</option>
+                    <option value="512" selected>512 GB</option>
+                    <option value="1024">1 TB</option>
+                    <option value="2048">2 TB</option>
+                    <option value="4096">4 TB</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="codec">Codec</label>
+                <select id="codec">
+                    <option value="r3d-ne">R3D NE (12-bit RAW)</option>
+                    <option value="n-raw">N-RAW (12-bit)</option>
+                    <option value="prores-raw-hq">ProRes RAW HQ</option>
+                    <option value="prores-422-hq">ProRes 422 HQ</option>
+                    <option value="h265-10bit">H.265 (10-bit)</option>
+                    <option value="h265-8bit">H.265 (8-bit)</option>
+                    <option value="h264">H.264 (8-bit)</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="resolution">Resolution & Frame Rate</label>
+                <select id="resolution">
+                    <!-- Options populated by JavaScript based on codec -->
+                </select>
+            </div>
+        </div>
+
+        <div class="result-card">
+            <div class="result-main">
+                <span class="result-label">Recording Time</span>
+                <span class="result-value" id="result-time">--</span>
+            </div>
+            <div class="result-details">
+                <div class="detail">
+                    <span class="detail-label">Data Rate</span>
+                    <span class="detail-value" id="result-datarate">-- MB/s</span>
+                </div>
+                <div class="detail">
+                    <span class="detail-label">Per Minute</span>
+                    <span class="detail-value" id="result-perminute">-- GB</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <h2>Recording Time Comparison</h2>
+            <p class="chart-subtitle">All available modes for your selected storage size</p>
+            <canvas id="comparisonChart"></canvas>
+        </div>
+
+        <footer>
+            <p>Data rates are estimates based on Nikon ZR specifications. Actual recording times may vary based on scene complexity.</p>
+            <p class="sources">Sources: <a href="https://www.nikonusa.com/p/zr/2006/overview" target="_blank">Nikon USA</a> | <a href="https://www.newsshooter.com/2025/09/09/nikon-zr-the-companys-first-digital-cinema-camera/" target="_blank">Newsshooter</a> | <a href="https://en.wikipedia.org/wiki/Nikon_ZR" target="_blank">Wikipedia</a></p>
+        </footer>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
