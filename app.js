@@ -16,7 +16,8 @@ const btnByCodec = document.getElementById('btn-by-codec');
 // Colors for codecs
 const CODEC_COLORS = {
     'r3d-ne': '#dc3545',
-    'n-raw': '#fd7e14',
+    'n-raw-high': '#fd7e14',
+    'n-raw-normal': '#e67e22',
     'prores-raw-hq': '#0d6efd',
     'prores-422-hq': '#20c997',
     'h265-10bit': '#6f42c1',
